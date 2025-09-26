@@ -33,6 +33,7 @@ const getTechIcon = (tech) => {
   return techIcons[tech] || null;
 };
 export default function PortfolioItem({ item }) {
+  const { id, title, img, desc, link, created_at, technologies, github } = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   console.log(item);
   const handleModalOpen = () => {
@@ -44,12 +45,12 @@ export default function PortfolioItem({ item }) {
   return (
     <div
       className={`flex h-screen w-screen items-center justify-center`}
-      key={item.id}
+      key={id}
     >
       <div className="flex h-4/5 w-11/12 items-center justify-center gap-2 bg-gradient-to-r from-sky-200 to-purple-200 px-4 text-white dark:bg-none">
         <div className="relative mt-16 flex h-full w-full flex-col items-center justify-between gap-y-5 overflow-hidden rounded-lg py-20 sm:w-3/4 md:w-10/12">
           <h1 className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-5xl">
-            {item.title}
+            {title}
           </h1>
           <motion.div
             initial={{ opacity: 0, y: 70 }}
@@ -59,7 +60,7 @@ export default function PortfolioItem({ item }) {
           >
             {/* Image Container */}
             <div className="group relative w-full md:w-1/2">
-              <div className="group-hover:shadow-[var(--btn-primary)]/20 overflow-hidden rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
+              <div className="overflow-hidden rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[var(--btn-primary)]/20">
                 <img
                   onClick={handleModalOpen}
                   src={item.img}
@@ -67,7 +68,7 @@ export default function PortfolioItem({ item }) {
                   className="aspect-video h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 transition-all duration-500 group-hover:opacity-100">
+                <div className="absolute right-0 bottom-0 left-0 p-6 opacity-0 transition-all duration-500 group-hover:opacity-100">
                   <div className="flex flex-wrap gap-2">
                     {item.technologies.split(",").map((tech, index) => (
                       <span
@@ -92,7 +93,7 @@ export default function PortfolioItem({ item }) {
                     ? format(new Date(item.created_at), "MMMM d, yyyy")
                     : "Date not available"}
                 </div>
-                <p className="text-sm leading-relaxed text-stone-700 dark:text-stone-300 lg:text-lg">
+                <p className="text-sm leading-relaxed text-stone-700 lg:text-lg dark:text-stone-300">
                   {item.desc}
                 </p>
               </div>

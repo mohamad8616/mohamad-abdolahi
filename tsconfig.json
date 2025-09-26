@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "declarations.d.ts"
+    "declarations.d.ts",
+    "src/app/theme-toggle.jsx"
   ],
   "exclude": ["node_modules"]
 }

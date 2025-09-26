@@ -15,10 +15,10 @@ const Portfolio = () => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-        const { data, success } = await res.json();
-        setDbItems(data);
+        const { safeData, success } = await res.json();
+        setDbItems(safeData);
 
-        console.log("Fetched dbItems:", data);
+        console.log("Fetched dbItems:", safeData);
         if (!success) {
           throw new Error("Failed to fetch projects");
         }
