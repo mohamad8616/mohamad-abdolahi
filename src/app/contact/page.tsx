@@ -3,15 +3,14 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa6";
-const text = "Get In Touch";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
-  const form = useRef();
+  const form = useRef(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
@@ -41,7 +40,7 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="mb-20 flex h-full w-full items-center justify-center bg-stone-200 px-1 dark:bg-transparent sm:px-4 md:px-12 lg:px-20 xl:px-48">
+      <div className="mb-20 flex h-full w-full items-center justify-center bg-stone-200 px-1 sm:px-4 md:px-12 lg:px-20 xl:px-48 dark:bg-transparent">
         <div className="mx-6 flex h-full w-full flex-col items-center justify-center space-y-12 py-16 text-3xl md:mx-0 md:text-5xl lg:text-6xl">
           {/* <h1 className="font-bold text-slate-800 dark:text-slate-200">
             {text.split("").map((letter, index) => (
@@ -76,7 +75,7 @@ const ContactPage = () => {
           </h1> */}
 
           <div className="flex w-full flex-col items-stretch justify-between gap-10 lg:flex-row">
-            <div className="rounded-lg bg-[var(--btn-ternary)] px-8 py-10 shadow-lg dark:bg-gray-800 lg:w-1/2">
+            <div className="rounded-lg bg-[var(--btn-ternary)] px-8 py-10 shadow-lg lg:w-1/2 dark:bg-gray-800">
               <h2 className="mb-6 border-b-2 border-gray-200 pb-4 text-2xl font-semibold text-gray-800 dark:text-gray-200">
                 Contact me
               </h2>
@@ -91,14 +90,14 @@ const ContactPage = () => {
                 <span className="sr-only">WhatsApp:</span>
                 <a
                   href="https://wa.me/989333449036"
-                  className="hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="hover:text-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 >
                   (Click): (+98) 933 344 9036
                 </a>
               </p>
               <a
                 href="mailto:mohamad.sh.a9036@gmail.com"
-                className="text-lg text-gray-600 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:text-gray-400"
+                className="text-lg text-gray-600 hover:text-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:text-gray-400"
               >
                 @ mohamad.sh.a9036@gmail.com
               </a>
@@ -106,7 +105,7 @@ const ContactPage = () => {
             <form
               onSubmit={sendEmail}
               ref={form}
-              className="rounded-lg bg-[var(--btn-ternary)] p-8 text-lg shadow-lg dark:bg-gray-800 lg:w-1/2"
+              className="rounded-lg bg-[var(--btn-ternary)] p-8 text-lg shadow-lg lg:w-1/2 dark:bg-gray-800"
             >
               <label
                 htmlFor="user_message"
@@ -117,7 +116,7 @@ const ContactPage = () => {
               <textarea
                 id="user_message"
                 rows={5}
-                className="mb-4 w-full resize-none rounded-md border border-gray-300 bg-transparent p-2 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:text-gray-300"
+                className="mb-4 w-full resize-none rounded-md border border-gray-300 bg-transparent p-2 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:text-gray-300"
                 name="user_message"
                 placeholder="Write your message here..."
                 required
@@ -133,12 +132,12 @@ const ContactPage = () => {
                 name="user_email"
                 type="email"
                 placeholder="’example@example.com’"
-                className="mb-6 w-full rounded-md border border-gray-300 bg-transparent p-2 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:text-gray-300"
+                className="mb-6 w-full rounded-md border border-gray-300 bg-transparent p-2 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:text-gray-300"
                 required
               />
               <button
                 type="submit"
-                className="w-full rounded-md bg-blue-500 p-3 text-lg font-semibold text-white transition-colors hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="w-full rounded-md bg-blue-500 p-3 text-lg font-semibold text-white transition-colors hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
               >
                 Send Message
               </button>

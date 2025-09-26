@@ -4,7 +4,6 @@ import { logOut } from "@/app/lib/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiFolder, FiPlus } from "react-icons/fi";
-import UserInfo from "./UserInfo";
 
 const SideNav = ({ userName }: { userName: string }) => {
   const pathname = usePathname();
@@ -20,7 +19,6 @@ const SideNav = ({ userName }: { userName: string }) => {
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
         <p className="mt-1 text-sm text-gray-400">Manage your projects</p>
         <p>Welcome {userName}</p>
-        {/* <UserInfo /> */}
       </div>
 
       <nav className="w-full">

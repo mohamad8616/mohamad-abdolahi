@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "declarations.d.ts",
-    "src/app/theme-toggle.jsx"
+    "src/app/theme-toggle.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -4,7 +4,7 @@ import Portfolio from "@/components/portfolio/Portfolio";
 import Hero from "@/components/Hero";
 import WhatIOffer from "@/components/WhatIOffer";
 
-export default function Page() {
+function Page() {
   return (
     <motion.div
       initial={{ y: "-200vh" }}
@@ -18,3 +18,5 @@ export default function Page() {
     </motion.div>
   );
 }
+
+export default Page;

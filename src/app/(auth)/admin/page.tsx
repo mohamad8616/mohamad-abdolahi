@@ -1,6 +1,4 @@
-import { auth } from "@/app/lib/auth";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const labelStyle = "mb-2 block text-sm font-medium text-gray-500";
 const inputStyles =

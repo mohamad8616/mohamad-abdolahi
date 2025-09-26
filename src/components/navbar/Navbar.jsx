@@ -16,7 +16,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <div className="fixed inset-x-0 top-0 z-[100]">
-      <nav className="mx-auto flex h-16 w-full max-w-[1350px] items-center justify-between gap-x-3 bg-stone-100/70 px-4 text-xl text-slate-800 shadow-sm backdrop-blur-md dark:bg-black/80 dark:text-slate-200 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <nav className="mx-auto flex h-16 w-full max-w-[1350px] items-center justify-between gap-x-3 bg-stone-100/70 px-4 text-xl text-slate-800 shadow-sm backdrop-blur-md sm:px-8 md:px-12 lg:px-20 xl:px-48 dark:bg-black/80 dark:text-slate-200">
         <ThemeToggle />
 
         <div className="hidden w-full flex-auto justify-end gap-4 md:flex">

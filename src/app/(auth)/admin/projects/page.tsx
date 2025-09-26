@@ -1,4 +1,3 @@
-import ProjectCard from "@/components/portfolio/ProjectCard";
 import Link from "next/link";
 
 export default async function page() {

@@ -1,8 +1,7 @@
+"use client";
 import LoginForm from "@/components/Login-form";
-import { auth } from "../lib/auth";
-import { redirect } from "next/navigation";
 
-export default async function Login() {
+export default function Login() {
   return (
     <div className="flex h-[600px] max-h-screen w-full flex-col items-center justify-center overflow-hidden">
       <div className="-mt-32">

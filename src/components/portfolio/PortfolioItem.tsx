@@ -72,7 +72,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
                 <div className="absolute right-0 bottom-0 left-0 p-6 opacity-0 transition-all duration-500 group-hover:opacity-100">
                   <div className="flex flex-wrap gap-2">
-                    {item.technologies.split(",").map((tech, index) => (
+                    {technologies.split(",").map((tech, index) => (
                       <span
                         key={index}
                         className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
@@ -96,7 +96,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                     : "Date not available"}
                 </div>
                 <p className="text-sm leading-relaxed text-stone-700 lg:text-lg dark:text-stone-300">
-                  {item.desc}
+                  {desc}
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
@@ -146,7 +146,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
             <div className="flex h-full w-full flex-col items-center justify-start gap-8 overflow-y-auto p-8">
               <div className="sticky top-0 z-10 flex w-full items-center justify-between bg-black/50 p-4 backdrop-blur-md">
                 <h1 className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-                  {item.title}
+                  {title}
                 </h1>
                 <button
                   onClick={handleModalClose}
@@ -192,7 +192,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {item.technologies.split(",").map((tech, index) => (
+                  {technologies.split(",").map((tech, index) => (
                     <span
                       key={index}
                       className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
@@ -208,9 +208,9 @@ export default function PortfolioItem({ item }: { item: Project }) {
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-4 text-base md:text-lg">
-                  {!item.link.includes("coffeedev.ir") && (
+                  {!link.includes("coffeedev.ir") && (
                     <a
-                      href={item.link}
+                      href={link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 p-[2px] transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
@@ -222,7 +222,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                     </a>
                   )}
                   <a
-                    href={item.github}
+                    href={github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 p-[2px] transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25"

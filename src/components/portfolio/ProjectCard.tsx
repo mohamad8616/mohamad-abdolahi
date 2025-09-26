@@ -1,5 +1,4 @@
 "use client";
-import { deleteProject } from "@/lib/db-action";
 import Button from "../UI/Button";
 import { useState } from "react";
 import Modal from "../UI/Modal";
@@ -82,12 +81,7 @@ export default function ProjectCard({ project }) {
                 Edit
               </Button>
 
-              <Button
-                onDelete={deleteProject}
-                id={project.id}
-                color="red"
-                type="delete"
-              >
+              <Button id={project.id} color="red" type="delete">
                 Delete
               </Button>
             </div>
