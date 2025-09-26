@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import TransitionProvider from "@/components/TransitionProvider";
-import { ThemeProvider } from "next-themes";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +13,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html className="dark" lang="en" suppressHydrationWarning>
+    <html className="" lang="en" suppressHydrationWarning>
+      <head>
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`
+            if (
+              localStorage.theme === 'dark' ||
+              (!('theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+              document.documentElement.classList.add('dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+            }
+          `}
+        </Script>
+      </head>
       <body
         className={`${inter.className} overflow-x-hidden bg-stone-50 text-gray-900 transition-colors duration-200 dark:bg-black`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TransitionProvider>{children}</TransitionProvider>
-        </ThemeProvider>
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );
