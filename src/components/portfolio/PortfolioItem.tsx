@@ -1,4 +1,5 @@
 "use client";
+import { Project } from "@/lib/definitions";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -32,10 +33,11 @@ const getTechIcon = (tech) => {
   };
   return techIcons[tech] || null;
 };
-export default function PortfolioItem({ item }) {
-  const { id, title, img, desc, link, created_at, technologies, github } = item;
+export default function PortfolioItem({ item }: { item: Project }) {
+  const { id, title, img, desc, link, createdAt, technologies, github } = item;
+  const createTime = Number(createdAt);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(item);
+
   const handleModalOpen = () => {
     setIsModalOpen(true);
   };
@@ -63,8 +65,8 @@ export default function PortfolioItem({ item }) {
               <div className="overflow-hidden rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[var(--btn-primary)]/20">
                 <img
                   onClick={handleModalOpen}
-                  src={item.img}
-                  alt={item.title}
+                  src={img}
+                  alt={title}
                   className="aspect-video h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
@@ -89,8 +91,8 @@ export default function PortfolioItem({ item }) {
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                   <span className="h-1 w-1 rounded-full bg-gray-400"></span>
                   Created at:{" "}
-                  {item.created_at && !isNaN(new Date(item.created_at))
-                    ? format(new Date(item.created_at), "MMMM d, yyyy")
+                  {createTime && !isNaN(new Date(createTime).getTime())
+                    ? format(new Date(createTime), "MMMM d, yyyy")
                     : "Date not available"}
                 </div>
                 <p className="text-sm leading-relaxed text-stone-700 lg:text-lg dark:text-stone-300">
@@ -184,8 +186,8 @@ export default function PortfolioItem({ item }) {
                     />
                   </svg>
                   Created at:{" "}
-                  {item.created_at && !isNaN(new Date(item.created_at))
-                    ? format(new Date(item.created_at), "MM/dd/yyyy")
+                  {createTime && !isNaN(new Date(createTime).getTime())
+                    ? format(new Date(createTime), "MM/dd/yyyy")
                     : "Date not available"}
                 </div>
 

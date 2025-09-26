@@ -1,5 +1,15 @@
 "use client";
 
+import { Dispatch, SetStateAction } from "react";
+
+type ButtonType = {
+  children: React.ReactNode;
+  onOpen?: Dispatch<SetStateAction<boolean>>;
+  color?: string;
+  id?: number;
+  onDelete?: (id: number) => Promise<void>;
+  type: "edit" | "delete";
+};
 export default function Button({
   children,
   color,
@@ -7,7 +17,7 @@ export default function Button({
   id,
   onOpen,
   type = "edit",
-}) {
+}: ButtonType) {
   if (type === "edit") {
     return (
       <button

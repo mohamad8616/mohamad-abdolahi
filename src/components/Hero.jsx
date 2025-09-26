@@ -24,9 +24,9 @@ export default function Hero() {
         </Suspense>
       </div>
       {/* TEXT CONTAINER */}
-      <div className="relative flex h-1/2 flex-col items-center justify-center gap-8 font-light font-semibold md:h-full md:w-1/2">
+      <div className="relative flex h-1/2 flex-col items-center justify-center gap-8 font-semibold md:h-full md:w-1/2">
         {/* TITLE */}
-        <h1 className="z-20 transform text-start text-4xl font-medium text-yellow-600 md:absolute md:-top-28 md:w-[700px] md:-translate-x-20 md:text-7xl lg:-translate-x-10">
+        <div className="z-20 transform text-start text-4xl font-medium text-yellow-600 md:absolute md:-top-28 md:w-[700px] md:-translate-x-20 md:text-7xl lg:-translate-x-10">
           {/* Hi, I&apos;m Mohammad. */}
           <TypeAnimation
             sequence={["I'm Mohamad", 1000, "Front-end Dev", 1000]}
@@ -34,25 +34,25 @@ export default function Hero() {
             speed={200}
             repeat={Infinity}
           />
-        </h1>
+        </div>
         {/* DESC */}
-        <p className="md:mt-30 tracking-wide dark:text-yellow-100 md:text-xl/7">
+        <p className="tracking-wide md:mt-30 md:text-xl/7 dark:text-yellow-100">
           A passionate front-end developer on a journey to craft beautiful and
           functional web experiences. I’m constantly learning and experimenting
           to bring ideas to life through code.
         </p>
-        <p className="tracking-wide dark:text-yellow-100 md:text-xl/7">
+        <p className="tracking-wide md:text-xl/7 dark:text-yellow-100">
           While I may be new to the field, I’ve already built several projects
           that showcase my ability to turn concepts into reality. Every
           challenge I tackle teaches me something new, and I’m excited to grow
           with every line of code I write.
         </p>
-        <p className="tracking-wide dark:text-yellow-100 md:text-xl/7">
+        <p className="tracking-wide md:text-xl/7 dark:text-yellow-100">
           I focus on clean, responsive design and intuitive user experiences. My
           goal is to create websites that not only look great but feel great to
           use.
         </p>
-        <p className="tracking-wide dark:text-yellow-100 md:text-xl/7">
+        <p className="tracking-wide md:text-xl/7 dark:text-yellow-100">
           If you want to collaborate, chat, or simply geek out over front-end
           development, feel free to connect!
         </p>
@@ -65,7 +65,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/contact"
-            className={`${heroBtnStyle} border-none bg-[#415A77] font-semibold text-[#fff] outline-none transition duration-200 ease-in-out hover:bg-[#E0E1DD] hover:text-[#415A77]`}
+            className={`${heroBtnStyle} border-none bg-[#415A77] font-semibold text-[#fff] transition duration-200 ease-in-out outline-none hover:bg-[#E0E1DD] hover:text-[#415A77]`}
           >
             Contact
           </Link>

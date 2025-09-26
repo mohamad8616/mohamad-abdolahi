@@ -5,9 +5,11 @@ import { Suspense, useEffect, useRef, useState } from "react";
 
 import PortfolioHire from "./PortfolioHire";
 import PortfolioItem from "./PortfolioItem";
+import { Project } from "../../../generated/prisma";
 
 const Portfolio = () => {
-  const [dbItems, setDbItems] = useState();
+  const [dbItems, setDbItems] = useState<Project[]>([]);
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -16,9 +18,9 @@ const Portfolio = () => {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const { safeData, success } = await res.json();
+
         setDbItems(safeData);
 
-        console.log("Fetched dbItems:", safeData);
         if (!success) {
           throw new Error("Failed to fetch projects");
         }
@@ -26,10 +28,10 @@ const Portfolio = () => {
         console.error("Error fetching projects:", err);
       }
     };
-
     fetchProjects();
   }, []);
-  const ref = useRef();
+
+  const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
