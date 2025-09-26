@@ -1,5 +1,5 @@
 "use client";
-import { Project } from "@/lib/definitions";
+import { Project } from "@/app/lib/definitions";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { useState } from "react";

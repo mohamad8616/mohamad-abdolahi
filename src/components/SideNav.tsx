@@ -1,10 +1,12 @@
 "use client";
 
+import { logOut } from "@/app/lib/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiPlus, FiFolder } from "react-icons/fi";
+import { FiFolder, FiPlus } from "react-icons/fi";
+import UserInfo from "./UserInfo";
 
-const SideNav = () => {
+const SideNav = ({ userName }: { userName: string }) => {
   const pathname = usePathname();
 
   const navItems = [
@@ -17,6 +19,8 @@ const SideNav = () => {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
         <p className="mt-1 text-sm text-gray-400">Manage your projects</p>
+        <p>Welcome {userName}</p>
+        {/* <UserInfo /> */}
       </div>
 
       <nav className="w-full">
@@ -42,7 +46,7 @@ const SideNav = () => {
             );
           })}
         </ul>
-        <form>
+        <form action={logOut}>
           <button
             type="submit"
             className="mt-4 w-full rounded-lg bg-red-500 px-4 py-2 text-white transition-all duration-200 hover:bg-red-600 focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:outline-none"

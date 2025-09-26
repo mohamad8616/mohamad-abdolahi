@@ -1,5 +1,5 @@
 import { PrismaClient } from "./generated/prisma";
-import { experiences, items } from "./src/utility/data";
+import { experiences, items } from "./src/app/lib/data";
 const prisma = new PrismaClient();
 
 async function main() {

@@ -1,12 +1,13 @@
 "use client";
 
+import { loginAction } from "@/app/lib/actions";
 import { useActionState } from "react";
 
 export default function LoginForm() {
   // const [formState, formAction] = useActionState(login, {});
 
   return (
-    <form className="flex flex-col gap-4">
+    <form className="flex flex-col gap-4" action={loginAction}>
       <input
         type="email"
         placeholder="Email"
@@ -19,7 +20,10 @@ export default function LoginForm() {
         name="password"
         className="w-80 rounded-md border-2 border-gray-300 bg-white p-2 text-gray-700 placeholder-gray-400 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
       />
-      <button type="submit" className="rounded-md bg-blue-500 p-2 text-white">
+      <button
+        type="submit"
+        className="cursor-pointer rounded-md bg-blue-500 p-2 text-slate-100"
+      >
         Login
       </button>
       {/* {formState?.errors && (
