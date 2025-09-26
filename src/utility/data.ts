@@ -1,7 +1,15 @@
-export const items = [
+type Project = {
+  title: string;
+  desc: string;
+  link: string;
+  img: string;
+  createdAt: number;
+  github: string;
+  technologies: string;
+};
+
+export const items: Project[] = [
   {
-    id: 1,
-    color: "from-red-300 to-blue-300",
     title: "Next Casablanca Hotel",
     desc: "A full-stack CRUD application built with Next.js, showcasing a modern hotel management system. Features include real-time booking, room management, and an intuitive admin dashboard for effortless content updates. Leverages server-side rendering and API routes for optimal performance and seamless data handling.",
     link: "https://casablanca-hotel.vercel.app",
@@ -12,8 +20,6 @@ export const items = [
       "Next.js, Tailwind CSS, TypeScript, React, Supabase, Framer Motion",
   },
   {
-    id: 2,
-    color: "from-red-300 to-blue-300",
     title: "Restaurant Website",
     desc: "A restaurant website built with HTML, CSS, and JavaScript. It features a modern and responsive design, a menu section with a gallery of dishes, and a contact form for customers to get in touch with the restaurant.",
     link: "https://html-css-restaurant-flax.vercel.app/",
@@ -23,8 +29,6 @@ export const items = [
     technologies: "HTML, CSS, JavaScript",
   },
   {
-    id: 3,
-    color: "from-red-300 to-blue-300",
     title: "Portfolio",
     desc: "A portfolio website built with Next.js, Tailwind CSS, and Framer Motion. It features a modern and responsive design, a portfolio section with a gallery of projects, and a contact form for customers to get in touch with the developer.",
     link: "https://coffeedev.ir",
