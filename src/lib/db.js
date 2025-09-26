@@ -1,4 +1,4 @@
-import { items } from "../utility/data.js";
+import { items } from "../utility/data";
 
 import sql from "better-sqlite3";
 
