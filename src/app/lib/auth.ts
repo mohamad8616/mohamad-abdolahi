@@ -2,15 +2,11 @@ import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import z from "zod";
-import { authConfig } from "../../../auth.config";
 import prisma from "./prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
-      // authorize: async (credentials) => {
-      //   const parsedCredentials = z
-      //     .object({ email: z.string().email(), password: z.string().min(6) })
       //     .safeParse(credentials);
 
       //   if (!parsedCredentials.success) {
@@ -66,7 +62,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           name: user.name,
         };
       },
-      ...authConfig,
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.accessToken = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.sessionToken = token.accessToken as string;
+      }
+      return session;
+    },
+    async authorized({ auth, request }) {
+      const isAuthorized = !!auth?.user?.email;
+      const isPrivateRoute = request.nextUrl.pathname.startsWith("/admin");
+
+      if (isPrivateRoute && !isAuthorized) {
+        Response.redirect(new URL("/", request.nextUrl));
+        return false; // user not authorized
+      }
+      return true; // allow access
+    },
+  },
 });

@@ -35,7 +35,7 @@ const ContactPage = () => {
 
   return (
     <motion.div
-      className="h-auto min-h-screen w-full py-20"
+      className="h-[650px] w-full max-w-screen overflow-hidden py-20"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
