@@ -1,5 +1,5 @@
 "use client";
-import { logout } from "@/lib/form-action";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiPlus, FiFolder } from "react-icons/fi";
@@ -42,10 +42,10 @@ const SideNav = () => {
             );
           })}
         </ul>
-        <form action={logout}>
+        <form>
           <button
             type="submit"
-            className="mt-4 w-full rounded-lg bg-red-500 px-4 py-2 text-white transition-all duration-200 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2"
+            className="mt-4 w-full rounded-lg bg-red-500 px-4 py-2 text-white transition-all duration-200 hover:bg-red-600 focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:outline-none"
           >
             logout
           </button>
