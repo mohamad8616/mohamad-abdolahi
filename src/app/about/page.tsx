@@ -6,18 +6,18 @@ import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 
 const AboutPage = () => {
-  const containerRef = useRef();
+  const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({ container: containerRef });
 
-  const skillRef = useRef();
+  const skillRef = useRef(null);
 
   const isSkillRefInView = useInView(skillRef, {
     margin: "-100px",
     once: true,
   });
 
-  const experienceRef = useRef();
+  const experienceRef = useRef(null);
   const isExperienceRefInView = useInView(experienceRef, {
     margin: "-100px",
     once: true,
@@ -92,8 +92,8 @@ const AboutPage = () => {
                   <path
                     d="M535.206 433.606C457.773 431.923 380.851 420.173 305.016 404.967C225.257 388.975 145.808 367.221 73.142 329.882C49.2189 317.589 25.931 303.6 8.52522 282.713C6.86933 280.726 2.38843 271.202 2.38843 276.697C2.38843 294.243 3.81629 314.11 16.3466 327.476C36.0503 348.493 59.4591 353.467 87.8221 353.467C197.1 353.467 304.424 348.085 412.952 333.251C580.399 310.364 746.099 288.489 915.326 288.489C951.064 288.489 986.801 288.489 1022.54 288.489"
                     stroke="black"
-                    stroke-width="3"
-                    stroke-linecap="round"
+                    strokeWidth="3"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>

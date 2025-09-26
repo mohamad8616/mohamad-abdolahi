@@ -1,32 +1,23 @@
-import { verifyAuth } from "@/lib/auth";
-import { createProject } from "@/lib/db-action";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const labelStyle = "mb-2 block text-sm font-medium text-gray-500";
 const inputStyles =
   "w-full rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-3 text-gray-700 placeholder-gray-400 transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200";
 
 export default async function AdminPage() {
-  const session = await verifyAuth();
-  if (!session.user) redirect("/");
-
   return (
     <main className="h-auto min-h-screen py-12">
       <div className="mx-auto max-w-2xl px-4">
         <div className="mb-8 text-center">
           <h1 className="mb-2 text-3xl font-bold text-gray-200">
-            Add New Project
+            Add New Projeoct
           </h1>
           <p className="text-gray-200">
             Fill in the details to add a new project to your portfolio
           </p>
         </div>
 
-        <form
-          action={createProject}
-          className="space-y-6 rounded-xl p-2 shadow-lg md:p-8"
-        >
+        <form className="space-y-6 rounded-xl p-2 shadow-lg md:p-8">
           {/* Title Input */}
           <div>
             <label htmlFor="title" className={labelStyle}>
@@ -50,7 +41,6 @@ export default async function AdminPage() {
             <textarea
               id="desc"
               name="desc"
-              rows="4"
               placeholder="Describe your project"
               required
               className={inputStyles}
@@ -127,7 +117,7 @@ export default async function AdminPage() {
           <div className="space-y-4 pt-4 text-center">
             <button
               type="submit"
-              className="w-full rounded-lg bg-blue-500 px-6 py-3 text-white transition-all duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-offset-2"
+              className="w-full rounded-lg bg-blue-500 px-6 py-3 text-white transition-all duration-200 hover:bg-blue-600 focus:ring-2 focus:ring-blue-200 focus:ring-offset-2 focus:outline-none"
             >
               Add Project
             </button>
