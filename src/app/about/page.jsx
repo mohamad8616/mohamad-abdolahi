@@ -67,7 +67,7 @@ const AboutPage = () => {
               {/* BIOGRAPHY QUOTE */}
               <span className="italic">
                 {/* BIOGRAPHY QUOTE */}
-                <span className="italic text-stone-700 dark:text-stone-300">
+                <span className="text-stone-700 italic dark:text-stone-300">
                   Programming is not about typing, it&apos;s about thinking.
                   Code is just a way to express our thoughts to the machine
                 </span>{" "}
@@ -86,7 +86,7 @@ const AboutPage = () => {
                   <path
                     d="M524 192C495.931 186.018 468.782 174.466 443.778 160.556C401.705 137.15 359.311 101.546 341.444 55.2778C329.608 24.6254 354.2 8.78164 380.556 3.22222C385.922 2.09032 392.901 0.899371 398.222 2.88889C413.282 8.51977 410.927 27.6563 406.556 39.4444C394.286 72.5277 353.651 95.3668 353.444 132.889C353.237 170.661 414.954 134.071 428.111 126.667C460.552 108.411 493.487 92.7402 528.667 80.4444C550.876 72.682 573.903 66.2724 595.333 56.4444C598.996 54.7647 606.519 52.5843 609 49C611.56 45.3022 601.072 53.2772 597.333 55.7778C542.557 92.4186 488.871 131.005 435.556 169.722C324.923 250.064 221.068 338.621 114 423.5C99.5573 434.95 84.3788 445.497 70 457"
                     stroke="black"
-                    stroke-width="3"
+                    strokeWidth="3"
                     stroke-linecap="round"
                   />
                   <path
