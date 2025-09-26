@@ -34,7 +34,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-gray-800 p-2 text-gray-200 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:text-yellow-400 dark:hover:bg-gray-700"
+      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-800 px-3 py-1 text-gray-200 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:text-yellow-400 dark:hover:bg-gray-700"
     >
       {theme === "dark" ? (
         <FaSun className="h-5 w-5" />
