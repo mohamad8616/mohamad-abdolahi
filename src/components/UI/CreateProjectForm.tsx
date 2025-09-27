@@ -66,7 +66,17 @@ const CreateProjectForm = () => {
           id="desc"
           placeholder="Describe your project"
           className={inputStyles}
-          {...register("desc", { required: "Description is required" })}
+          {...register("desc", {
+            required: "Description is required",
+            minLength: {
+              value: 10,
+              message: "Description must be at least 10 characters long",
+            },
+            maxLength: {
+              value: 1000,
+              message: "Description must be at most 1000 characters long",
+            },
+          })}
         />
         {errors.desc && (
           <p className="text-sm text-red-400">{errors.desc.message}</p>
