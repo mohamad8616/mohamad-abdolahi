@@ -8,3 +8,12 @@ export interface Project {
   technologies: string;
   createdAt: bigint;
 }
+
+export type EditOrCreateInput = {
+  title: string;
+  img: string;
+  desc: string;
+  technologies: string;
+  link: string;
+  github: string;
+};

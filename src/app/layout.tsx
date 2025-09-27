@@ -3,6 +3,7 @@ import "./globals.css";
 
 import TransitionProvider from "@/components/TransitionProvider";
 import Script from "next/script";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
         className={`${inter.className} overflow-x-hidden bg-stone-50 text-gray-900 transition-colors duration-200 dark:bg-black`}
       >
         <TransitionProvider>{children}</TransitionProvider>
+        <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
   );

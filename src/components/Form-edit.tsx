@@ -4,6 +4,8 @@ import { Dispatch, SetStateAction } from "react";
 import { Project } from "../../generated/prisma";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { editProject } from "@/app/lib/actions";
+import { EditOrCreateInput } from "@/app/lib/definitions";
+import { toast } from "react-toastify";
 
 const inputStyle =
   "mt-1 block w-full text-stone-800 rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm";
@@ -14,15 +16,6 @@ type editFormType = {
   project: Project;
 };
 
-type Inputs = {
-  title: string;
-  img: string;
-  desc: string;
-  technologies: string;
-  link: string;
-  github: string;
-};
-
 export default function FormEdit({ project, setIsOpen }: editFormType) {
   const { id, title, img, desc, technologies, link, github } = project;
   const {
@@ -30,8 +23,8 @@ export default function FormEdit({ project, setIsOpen }: editFormType) {
     setError,
     formState: { errors, isSubmitted, isSubmitSuccessful, isSubmitting },
     handleSubmit,
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  } = useForm<EditOrCreateInput>();
+  const onSubmit: SubmitHandler<EditOrCreateInput> = async (data) => {
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => formData.append(key, value));
     // Handle form submission
@@ -45,7 +38,7 @@ export default function FormEdit({ project, setIsOpen }: editFormType) {
         return;
       }
 
-      alert("Project updated!");
+      toast.success("Project updated!");
       setIsOpen(false);
     } catch (err) {
       console.error(err);
