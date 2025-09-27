@@ -3,8 +3,9 @@ import Button from "../UI/Button";
 import { useState } from "react";
 import Modal from "../UI/Modal";
 import FormEdit from "../Form-edit";
+import { Project } from "../../../generated/prisma";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: { project: Project }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -40,7 +41,7 @@ export default function ProjectCard({ project }) {
 
           {/* Technologies */}
           <div className="mb-4 flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => (
+            {project.technologies.split(",").map((tech, index) => (
               <span
                 key={index}
                 className="rounded-full bg-blue-100 px-3 py-1 text-xs text-blue-800"

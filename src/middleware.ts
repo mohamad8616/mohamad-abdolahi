@@ -1,8 +1,3 @@
-// export { auth as middleware } from "@/app/lib/auth";
-// export const config = {
-//   matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)", "/admin/:path*"],
-//   runtime: "nodejs",
-// };
 import { auth } from "@/app/lib/auth"; // adjust path
 
 export default auth((req) => {

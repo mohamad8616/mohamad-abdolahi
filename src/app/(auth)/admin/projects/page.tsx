@@ -1,6 +1,11 @@
+import { getProjects } from "@/app/lib/utility";
+import ProjectCard from "@/components/portfolio/ProjectCard";
+import Spinner from "@/components/UI/Spinner";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function page() {
+  const projects = await getProjects();
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8 flex items-center justify-between">
@@ -14,9 +19,17 @@ export default async function page() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {/* {projects.map((project, index) => (
-          <ProjectCard project={project} key={index} />
-        ))} */}
+        <Suspense
+          fallback={
+            <div>
+              <Spinner />
+            </div>
+          }
+        >
+          {projects.map((project, index) => (
+            <ProjectCard project={project} key={index} />
+          ))}
+        </Suspense>
       </div>
     </div>
   );
