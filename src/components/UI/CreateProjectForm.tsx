@@ -19,21 +19,22 @@ const CreateProjectForm = () => {
   } = useForm<EditOrCreateInput>();
 
   const onSubmit: SubmitHandler<EditOrCreateInput> = async (data) => {
-    try {
-      const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("img", data.img);
-      formData.append("desc", data.desc);
-      formData.append("technologies", data.technologies);
-      formData.append("link", data.link);
-      formData.append("github", data.github);
+    // try {
+    //   const formData = new FormData();
+    //   formData.append("title", data.title);
+    //   formData.append("img", data.img);
+    //   formData.append("desc", data.desc);
+    //   formData.append("technologies", data.technologies);
+    //   formData.append("link", data.link);
+    //   formData.append("github", data.github);
 
-      await createProject(formData);
-      toast.success("Project created successfully!");
-    } catch (error) {
-      console.error("Failed to create project:", error);
-      toast.error("Failed to create project");
-    }
+    //   await createProject(formData);
+    //   toast.success("Project created successfully!");
+    // } catch (error) {
+    //   console.error("Failed to create project:", error);
+    //   toast.error("Failed to create project");
+    // }
+    console.log(data.img[0]);
   };
   return (
     <form
@@ -90,14 +91,14 @@ const CreateProjectForm = () => {
         </label>
         <div className="relative">
           <input
-            type="text"
+            type="file"
             id="img"
-            placeholder="https://example.com/image.jpg"
-            className={inputStyles}
-            {...register("img", { required: "Image URL is required" })}
+            accept=".jpg,.jpeg,.png, webp"
+            className={`${inputStyles} cursor-pointer placeholder:cursor-pointer`}
+            {...register("img", { required: "Select a picture" })}
           />
           <p className="mt-1 text-xs text-gray-500">
-            Upload your image to ImgBB and paste the direct link here
+            Upload your image to imageKit and paste the direct link here
           </p>
           {errors.img && (
             <p className="text-sm text-red-400">{errors.img.message}</p>
