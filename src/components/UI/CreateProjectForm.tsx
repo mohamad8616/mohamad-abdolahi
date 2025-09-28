@@ -91,7 +91,7 @@ const CreateProjectForm = () => {
         </label>
         <div className="relative">
           <input
-            type="file"
+            type="text"
             id="img"
             accept=".jpg,.jpeg,.png, webp"
             className={`${inputStyles} cursor-pointer placeholder:cursor-pointer`}
