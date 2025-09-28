@@ -1,10 +1,9 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import { Project } from "../../generated/prisma";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { editProject } from "@/app/lib/actions";
-import { EditOrCreateInput } from "@/app/lib/definitions";
+import { EditOrCreateInput, Project } from "@/app/lib/definitions";
 import { toast } from "react-toastify";
 
 const inputStyle =
@@ -21,7 +20,7 @@ export default function FormEdit({ project, setIsOpen }: editFormType) {
   const {
     register,
     setError,
-    formState: { errors, isSubmitted, isSubmitSuccessful, isSubmitting },
+    formState: { isSubmitSuccessful, isSubmitting },
     handleSubmit,
   } = useForm<EditOrCreateInput>();
   const onSubmit: SubmitHandler<EditOrCreateInput> = async (data) => {
@@ -75,7 +74,7 @@ export default function FormEdit({ project, setIsOpen }: editFormType) {
           type="text"
           id="img"
           name="img"
-          defaultValue={img}
+          defaultValue={img as string}
           className={inputStyle}
           {...register("img", { required: "Image URL is required" })}
         />

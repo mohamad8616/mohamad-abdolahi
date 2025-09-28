@@ -3,10 +3,14 @@ import Button from "../UI/Button";
 import { useState } from "react";
 import Modal from "../UI/Modal";
 import FormEdit from "../Form-edit";
-import { Project } from "../../../generated/prisma";
+import { deleteProject } from "@/app/lib/actions";
+import { Project } from "@/app/lib/definitions";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [isOpen, setIsOpen] = useState(false);
+  const handleDelete = async () => {
+    await deleteProject(project.id);
+  };
 
   return (
     <>
@@ -82,9 +86,11 @@ export default function ProjectCard({ project }: { project: Project }) {
                 Edit
               </Button>
 
-              <Button id={project.id} color="red" type="delete">
-                Delete
-              </Button>
+              <form action={handleDelete}>
+                <button className="rounded bg-red-500 px-3 py-1 text-sm text-white hover:bg-red-600">
+                  Delete
+                </button>
+              </form>
             </div>
           </div>
         </div>

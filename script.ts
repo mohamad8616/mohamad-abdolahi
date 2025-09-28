@@ -1,4 +1,4 @@
-import { PrismaClient } from "./generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { experiences, items } from "./src/app/lib/data";
 const prisma = new PrismaClient();
 
