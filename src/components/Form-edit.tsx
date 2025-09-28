@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { editProject } from "@/app/lib/actions";
 import { EditOrCreateInput, Project } from "@/app/lib/definitions";
 import { toast } from "react-toastify";
-import { Project } from "@prisma/client";
 
 const inputStyle =
   "mt-1 block w-full text-stone-800 rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm";
