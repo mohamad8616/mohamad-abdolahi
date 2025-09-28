@@ -42,38 +42,6 @@ const ContactPage = () => {
     >
       <div className="mb-20 flex h-full w-full items-center justify-center bg-stone-200 px-1 sm:px-4 md:px-12 lg:px-20 xl:px-48 dark:bg-transparent">
         <div className="mx-6 flex h-full w-full flex-col items-center justify-center space-y-12 py-16 text-3xl md:mx-0 md:text-5xl lg:text-6xl">
-          {/* <h1 className="font-bold text-slate-800 dark:text-slate-200">
-            {text.split("").map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0.3 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: index * 0.1,
-                }}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
-            <motion.span
-              role="img"
-              aria-label="Smiling face"
-              initial={{ opacity: 0.3 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
-              😊
-            </motion.span>
-          </h1> */}
-
           <div className="flex w-full flex-col items-stretch justify-between gap-10 lg:flex-row">
             <div className="rounded-lg bg-[var(--btn-ternary)] px-8 py-10 shadow-lg lg:w-1/2 dark:bg-gray-800">
               <h2 className="mb-6 border-b-2 border-gray-200 pb-4 text-2xl font-semibold text-gray-800 dark:text-gray-200">
