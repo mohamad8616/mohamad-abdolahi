@@ -1,9 +1,6 @@
-import { auth } from "@/app/lib/auth"; // adjust path
+// middleware.ts
+export { auth as middleware } from "@/app/lib/auth";
 
-export default auth((req) => {
-  if (!req.auth && req.nextUrl.pathname.startsWith("/admin")) {
-    const url = req.nextUrl.clone();
-    url.pathname = "/";
-    return Response.redirect(url);
-  }
-});
+export const config = {
+  matcher: ["/admin/*"],
+};
