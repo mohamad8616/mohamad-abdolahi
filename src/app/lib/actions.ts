@@ -93,7 +93,7 @@ export const createProject = async (formData: FormData) => {
     }
 
     const createdAt = new Date().getTime();
-    const newProject = await prisma.project.create({
+    await prisma.project.create({
       data: { ...parsed.data, createdAt },
     });
   } catch (error) {

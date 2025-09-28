@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa6";
 
@@ -10,7 +10,7 @@ const ContactPage = () => {
 
   const form = useRef(null);
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);

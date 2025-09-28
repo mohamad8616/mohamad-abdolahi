@@ -5,7 +5,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 
 import PortfolioHire from "./PortfolioHire";
 import PortfolioItem from "./PortfolioItem";
-import { Project } from "../../../generated/prisma";
+import { Project } from "@/app/lib/definitions";
 
 const Portfolio = () => {
   const [dbItems, setDbItems] = useState<Project[]>([]);

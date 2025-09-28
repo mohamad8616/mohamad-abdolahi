@@ -14,8 +14,7 @@ const CreateProjectForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<EditOrCreateInput>();
 
   const onSubmit: SubmitHandler<EditOrCreateInput> = async (data) => {
