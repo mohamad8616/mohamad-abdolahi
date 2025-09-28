@@ -1,7 +1,7 @@
 "use client";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa6";
 
 const ContactPage = () => {

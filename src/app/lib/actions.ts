@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import prisma from "@/app/lib/prisma";
 import { revalidatePath } from "next/cache";
 import z from "zod";
+import { toast } from "react-toastify";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -108,4 +109,28 @@ export const createProject = async (formData: FormData) => {
   }
   revalidatePath("/admin/projects");
   redirect("/admin/projects");
+};
+
+export const deleteProject = async (id: number) => {
+  try {
+    const session = await auth();
+    if (!session) {
+      // You can throw or return a structured error object
+      throw new Error("User not authenticated");
+    }
+
+    await prisma.project.delete({
+      where: { id },
+    });
+    toast.success("Project deleted successfully");
+    revalidatePath("/admin/projects");
+  } catch (error) {
+    console.error("Failed to delete project:", error);
+    toast.error("Failed to delete project");
+    // Return something meaningful to the caller
+    return {
+      message:
+        error instanceof Error ? error.message : "Unknown error occurred",
+    };
+  }
 };

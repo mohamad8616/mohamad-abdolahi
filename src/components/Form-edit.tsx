@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { editProject } from "@/app/lib/actions";
-import { EditOrCreateInput } from "@/app/lib/definitions";
+import { EditOrCreateInput, Project } from "@/app/lib/definitions";
 import { toast } from "react-toastify";
 import { Project } from "@prisma/client";
 
@@ -75,7 +75,7 @@ export default function FormEdit({ project, setIsOpen }: editFormType) {
           type="text"
           id="img"
           name="img"
-          defaultValue={img}
+          defaultValue={img as string}
           className={inputStyle}
           {...register("img", { required: "Image URL is required" })}
         />

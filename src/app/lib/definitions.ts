@@ -2,7 +2,7 @@ export interface Project {
   id: number;
   title: string;
   desc: string;
-  img: string;
+  img: string | File;
   link: string;
   github: string;
   technologies: string;
@@ -11,7 +11,7 @@ export interface Project {
 
 export type EditOrCreateInput = {
   title: string;
-  img: string;
+  img: string | File;
   desc: string;
   technologies: string;
   link: string;

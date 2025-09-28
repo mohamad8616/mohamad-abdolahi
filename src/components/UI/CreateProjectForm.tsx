@@ -14,6 +14,7 @@ const CreateProjectForm = () => {
   const {
     register,
     handleSubmit,
+
     formState: { errors },
   } = useForm<EditOrCreateInput>();
 
@@ -33,6 +34,7 @@ const CreateProjectForm = () => {
       console.error("Failed to create project:", error);
       toast.error("Failed to create project");
     }
+    // console.log(data.img[0]);
   };
   return (
     <form
@@ -89,14 +91,14 @@ const CreateProjectForm = () => {
         </label>
         <div className="relative">
           <input
-            type="text"
+            type="file"
             id="img"
-            placeholder="https://example.com/image.jpg"
-            className={inputStyles}
-            {...register("img", { required: "Image URL is required" })}
+            accept=".jpg,.jpeg,.png, webp"
+            className={`${inputStyles} cursor-pointer placeholder:cursor-pointer`}
+            {...register("img", { required: "Select a picture" })}
           />
           <p className="mt-1 text-xs text-gray-500">
-            Upload your image to ImgBB and paste the direct link here
+            Upload your image to imageKit and paste the direct link here
           </p>
           {errors.img && (
             <p className="text-sm text-red-400">{errors.img.message}</p>
