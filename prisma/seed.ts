@@ -15,11 +15,11 @@ async function main() {
   }
   console.log("projects seeded.");
   // Create experiences
-  for (const experience of experiences) {
-    await prisma.experience.create({
-      data: experience,
-    });
-  }
+  //   for (const experience of experiences) {
+  //     await prisma.experience.create({
+  //       data: experience,
+  //     });
+  //   }
   console.log("experiences seeded.");
 
   const hashedPass = await bcrypt.hash("711298123", 10);
