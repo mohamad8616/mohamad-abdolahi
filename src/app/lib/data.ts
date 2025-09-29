@@ -37,6 +37,16 @@ export const items: Project[] = [
     github: "https://github.com/mohamad8616/portfolio",
     technologies: "JavaScript, React, Next.js, Tailwind CSS, Framer motions",
   },
+  {
+    title: "Issue-tracker",
+    desc: "A full-stack issue tracking application built with Next.js, Tailwind CSS, and Prisma. It allows users to create, update, and manage issues in a collaborative environment.",
+    link: "https://issue-tracker-gfsk.vercel.app/",
+    img: "/track-issue.png",
+    createdAt: new Date(2025, 9, 28).getTime(),
+    github: "https://github.com/mohamad8616/Issue-tracker",
+    technologies:
+      "JavaScript, React, Next.js, Tailwind CSS, Framer motions, Prisma, radix ui, react form hook",
+  },
 ];
 export const experiences = [
   {
