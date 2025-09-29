@@ -1,5 +1,6 @@
 import { items as projects, experiences } from "@/app/lib/data";
 import prisma from "@/app/lib/prisma";
+import bcrypt from "bcryptjs";
 
 async function main() {
   await prisma.project.deleteMany();
@@ -21,6 +22,14 @@ async function main() {
   }
   console.log("experiences seeded.");
 
+  const hashedPass = await bcrypt.hash("711298123", 10);
+  await prisma.user.create({
+    data: {
+      password: hashedPass,
+      email: "kian9102@gmail.com",
+      name: "mohamad",
+    },
+  });
   console.log("Seeding finished!");
 }
 
