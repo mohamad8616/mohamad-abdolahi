@@ -48,18 +48,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         const { email, password } = parsed.data;
 
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findMany({
           where: { email },
         });
         if (!user) throw new Error("User not found");
 
-        const isValid = await bcrypt.compare(password, user.password);
+        const isValid = await bcrypt.compare(password, user[0].password);
         if (!isValid) throw new Error("Invalid password");
 
         return {
-          id: String(user.id),
-          email: user.email,
-          name: user.name,
+          id: String(user[0].id),
+          email: user[0].email,
+          name: user[0].name,
         };
       },
     }),
