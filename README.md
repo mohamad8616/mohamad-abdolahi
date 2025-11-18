@@ -1,8 +1,10 @@
 # Modern Animated Portfolio
 
+live-demo: [LIVE-DEMO:](https://mohamad-abdolahi.vercel.app)
+
 A stunning, responsive portfolio website built with Next.js and Framer Motion, featuring smooth animations and a modern design aesthetic.
 
-![Portfolio Preview](public/portfolio-preview.png)
+![Portfolio Preview](public/readme/coffeedev-v2.png)
 
 ## ✨ Features
 
@@ -14,6 +16,8 @@ A stunning, responsive portfolio website built with Next.js and Framer Motion, f
 - 🎯 Interactive project showcase
 - 🔍 SEO optimized
 - 🚀 Fast performance and optimized loading
+
+![Portfolio Preview](public/readme/coffeedevabout.png)
 
 ## 🛠️ Technologies Used
 
@@ -34,35 +38,38 @@ A stunning, responsive portfolio website built with Next.js and Framer Motion, f
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/mohamad8616/portfolio.git
 ```
 
-2. Navigate to the project directory:
+2.Navigate to the project directory:
+
 ```bash
 cd next-animated-portfolio
 ```
 
-3. Install dependencies:
+3.Install dependencies:
+
 ```bash
 npm install
 # or
 yarn install
 ```
 
-4. Run the development server:
+4.Run the development server:
+
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+5.Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## 📁 Project Structure
 
-```
-├── src/
+```├── src/
 │   ├── app/              # App router pages
 │   ├── components/       # React components
 │   ├── utility/         # Utility functions and data
@@ -87,7 +94,7 @@ export const items = [
     link: "https://project-link.com",
     github: "https://github.com/username/project",
     technologies: ["React", "Node.js", "MongoDB"],
-    createdAt: new Date("2024-01-01")
+    createdAt: new Date("2024-01-01"),
   },
   // Add more projects...
 ];
@@ -100,6 +107,7 @@ The project uses Tailwind CSS for styling. You can customize the theme in `tailw
 ## 📱 Responsive Design
 
 The portfolio is fully responsive and optimized for:
+
 - Desktop
 - Tablet
 - Mobile devices
@@ -114,7 +122,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Mohamad Abdolahi**
+### Mohamad Abdolahi
+
 - GitHub: [@mohamad8616](https://github.com/mohamad8616)
 - LinkedIn: [Mohamad Abdolahi](https://www.linkedin.com/in/mohamad-abdolahi)
 
