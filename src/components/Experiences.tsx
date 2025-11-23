@@ -1,7 +1,14 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
-
-export default function Experiences({ experienceRef, isExperienceRefInView }) {
+interface AboutSkillsProps {
+  experienceRef?: React.RefObject<HTMLDivElement> | null;
+  isExperienceRefInView?: boolean;
+}
+export default function Experiences({
+  experienceRef,
+  isExperienceRefInView,
+}: AboutSkillsProps) {
   return (
     <div
       className="flex flex-col justify-center gap-12 pb-48"
@@ -27,11 +34,11 @@ export default function Experiences({ experienceRef, isExperienceRefInView }) {
           {/* LEFT */}
           <div className="w-1/3">
             {/* JOB TITLE */}
-            <div className="rounded-b-lg rounded-s-lg bg-sky-950 p-3 text-lg font-semibold text-stone-200 dark:bg-[var(--btn-ternary)] dark:text-[var(--primary)]">
+            <div className="rounded-s-lg rounded-b-lg bg-sky-950 p-3 text-lg font-semibold text-stone-200 dark:bg-[var(--btn-ternary)] dark:text-[var(--primary)]">
               Junior Frontend Developer - remote
             </div>
             {/* JOB DESC */}
-            <div className="p-3 text-sm italic text-stone-700 dark:text-stone-300">
+            <div className="p-3 text-sm text-stone-700 italic dark:text-stone-300">
               <p>
                 Developed and maintained a fully responsive admin dashboard
                 using React and TanStack Query
@@ -80,11 +87,11 @@ export default function Experiences({ experienceRef, isExperienceRefInView }) {
           {/* RIGHT */}
           <div className="w-1/3">
             {/* JOB TITLE */}
-            <div className="rounded-b-lg rounded-s-lg bg-sky-950 p-3 font-semibold text-sky-100 dark:bg-[var(--btn-ternary)] dark:text-[var(--primary)]">
+            <div className="rounded-s-lg rounded-b-lg bg-sky-950 p-3 font-semibold text-sky-100 dark:bg-[var(--btn-ternary)] dark:text-[var(--primary)]">
               Junior React Developer
             </div>
             {/* JOB DESC */}
-            <div className="p-3 text-sm italic text-stone-700 dark:text-stone-300">
+            <div className="p-3 text-sm text-stone-700 italic dark:text-stone-300">
               <p>
                 Designed and developed modular, reusable UI components for
                 internal business tools

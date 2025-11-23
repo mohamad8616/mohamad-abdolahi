@@ -1,9 +1,9 @@
+import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 import TransitionProvider from "@/components/TransitionProvider";
 import Script from "next/script";
-import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +12,11 @@ export const metadata = {
   description: "Front end developer portfolio app",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html className="" lang="en" suppressHydrationWarning>
       <head>
@@ -34,7 +38,6 @@ export default function RootLayout({ children }) {
         className={`${inter.className} overflow-x-hidden bg-stone-50 text-gray-900 transition-colors duration-200 dark:bg-black`}
       >
         <TransitionProvider>{children}</TransitionProvider>
-        <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
   );

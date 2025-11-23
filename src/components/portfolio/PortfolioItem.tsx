@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect } from "react";
 import { Project } from "@/app/lib/definitions";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
@@ -44,6 +45,26 @@ export default function PortfolioItem({ item }: { item: Project }) {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      // Prevent scrolling on the body
+      document.body.style.overflow = "hidden";
+
+      //  also prevent scroll on touch devices (iOS Safari fix)
+      document.body.style.touchAction = "none";
+    } else {
+      // Re-enable scrolling
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+
+    // Cleanup function 
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [isModalOpen]);
   return (
     <div
       className={`flex h-screen w-screen items-center justify-center`}
@@ -139,13 +160,14 @@ export default function PortfolioItem({ item }: { item: Project }) {
               </span>
             </button>
           </motion.div>
-          {/* Small screen */}
+
+          {/* Small screen modal*/}
           <div
             className={`absolute inset-0 z-50 flex h-full w-full transform items-center justify-center bg-gradient-to-b from-black/95 to-black/80 backdrop-blur-sm transition-all duration-500 ${!isModalOpen ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"} lg:hidden`}
           >
             <div className="flex h-full w-full flex-col items-center justify-start gap-8 overflow-y-auto p-8">
-              <div className="sticky top-0 z-10 flex w-full items-center justify-between bg-black/50 p-4 backdrop-blur-md">
-                <h1 className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+              <div className="z-10 flex w-full items-center justify-between bg-black/50 p-4 backdrop-blur-md">
+                <h1 className="text-1xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-bold text-transparent md:text-4xl lg:text-5xl">
                   {title}
                 </h1>
                 <button
@@ -195,7 +217,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                   {technologies.split(",").map((tech, index) => (
                     <span
                       key={index}
-                      className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                      className="flex items-center gap-1.5 rounded-full bg-white/10 px-2 py-1 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
                     >
                       {getTechIcon(tech)}
                       <span className="text-gray-200">{tech}</span>
@@ -206,7 +228,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                 <p className="text-base leading-relaxed text-gray-300 lg:text-lg">
                   {item.desc}
                 </p>
-
+                {/* modal links */}
                 <div className="flex flex-wrap gap-4 pt-4 text-base md:text-lg">
                   {!link.includes("coffeedev.ir") && (
                     <a
@@ -215,7 +237,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                       rel="noopener noreferrer"
                       className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 p-[2px] transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
                     >
-                      <span className="relative z-10 flex items-center gap-2 rounded-lg bg-black px-6 py-3 font-semibold text-white transition-all duration-300 group-hover:bg-transparent">
+                      <span className="relative z-10 flex items-center gap-2 rounded-lg bg-black px-4 py-2 font-semibold text-white transition-all duration-300 group-hover:bg-transparent">
                         Live Demo
                         <FaExternalLinkAlt className="transition-transform duration-300 group-hover:translate-x-1" />
                       </span>
@@ -227,7 +249,7 @@ export default function PortfolioItem({ item }: { item: Project }) {
                     rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 p-[2px] transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25"
                   >
-                    <span className="relative z-10 flex items-center gap-2 rounded-lg bg-black px-6 py-3 font-semibold text-white transition-all duration-300 group-hover:bg-transparent">
+                    <span className="relative z-10 flex items-center gap-2 rounded-lg bg-black px-4 py-2 font-semibold text-white transition-all duration-300 group-hover:bg-transparent">
                       Source Code
                       <FaGithub className="transition-transform duration-300 group-hover:translate-x-1" />
                     </span>

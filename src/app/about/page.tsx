@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import AboutSkills from "@/components/AboutSkills";
 import Experiences from "@/components/Experiences";
 import Brain from "@/components/UI/brain";

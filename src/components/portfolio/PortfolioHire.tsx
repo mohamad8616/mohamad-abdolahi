@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -29,7 +30,7 @@ export default function PortfolioHire() {
         </motion.svg>
         <Link
           href="/contact"
-          className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-black text-white md:h-28 md:w-28"
+          className="absolute top-0 right-0 bottom-0 left-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-black text-white md:h-28 md:w-28"
         >
           Tell me
         </Link>

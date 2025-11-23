@@ -1,8 +1,7 @@
 "use client";
+import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
 import { Suspense, useEffect, useRef, useState } from "react";
-
 import PortfolioHire from "./PortfolioHire";
 import PortfolioItem from "./PortfolioItem";
 import { Project } from "@/app/lib/definitions";

@@ -1,8 +1,9 @@
 "use client";
+import React from "react";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 import Navbar from "./navbar/Navbar";
 import { usePathname } from "next/navigation";
-function TransitionProvider({ children }) {
+function TransitionProvider({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
   return (
     <AnimatePresence mode="wait">
@@ -21,7 +22,7 @@ function TransitionProvider({ children }) {
           animate={{ opacity: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: easeOut }}
-          className="fixed bottom-0 left-0 right-0 top-0 z-50 m-auto h-fit w-fit cursor-default text-8xl text-stone-800 dark:text-stone-200"
+          className="fixed top-0 right-0 bottom-0 left-0 z-50 m-auto h-fit w-fit cursor-default text-8xl text-stone-800 dark:text-stone-200"
         >
           {pathName.slice(1)}
         </motion.div>

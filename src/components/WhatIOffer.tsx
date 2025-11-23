@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { motion } from "framer-motion";
 import {
   FaCode,
@@ -44,9 +44,10 @@ const cards = [
 
 const h2Style =
   "mb-3 text-xl font-semibold sm:mb-4 sm:text-2xl text-yellow-600";
-const pStyle = "text-sm text-stone-700 dark:text-gray-300 sm:text-base";
+const pStyle =
+  "text-sm text-stone-700 dark:text-gray-300 sm:text-base dark:hover:text-gray-300";
 const cardStyle =
-  "rounded-lg dark:bg-white/5 bg-lime-100 p-4 transition-all hover:bg-white/80 hover:shadow-lg   hover:duration-300 hover:cursor-pointer hover:text-slate-100 sm:p-6";
+  "group rounded-lg dark:bg-white/5 bg-lime-100 p-4 transition-all hover:shadow-lg hover:duration-300 hover:text-slate-700 dark:hover:text-gray-700 sm:p-6";
 const iconStyle = "mb-4 text-3xl text-yellow-500 dark:text-yellow-400";
 const gradientText =
   "bg-gradient-to-r from-blue-400 via-yellow-500 to-lime-200 bg-clip-text text-transparent";

@@ -1,3 +1,5 @@
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { TypeAnimation } from "react-type-animation";
@@ -9,11 +11,15 @@ export default function Hero() {
     <div className="gap-y-16px flex h-auto min-h-screen flex-col items-center gap-10 px-8 py-20 sm:gap-y-6 sm:px-8 md:mt-32 md:flex-row md:px-12 lg:px-20 xl:px-48">
       <div className="h-10/12 w-10/12 rounded-md rounded-b-xl md:w-1/2">
         <Suspense fallback={<div>Loading...</div>}>
-          <img
-            alt="Hero illustration"
-            src="/SnapBG.ai_1746638530893.png "
-            className="hidden w-full object-top grayscale transition-all duration-300 hover:grayscale-0 dark:block"
-          />
+          <div className="relative">
+            <Image
+              alt="Hero illustration"
+              width={200}
+              height={400}
+              src="/SnapBG.ai_1746638530893.png"
+              className="hidden w-full object-top grayscale transition-all duration-300 hover:grayscale-0 dark:block"
+            />
+          </div>
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <img
@@ -31,7 +37,7 @@ export default function Hero() {
           <TypeAnimation
             sequence={["I'm Mohamad", 1000, "Front-end Dev", 1000]}
             wrapper="h1"
-            speed={200}
+            speed={99}
             repeat={Infinity}
           />
         </div>

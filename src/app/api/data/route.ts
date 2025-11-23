@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/lib/prisma";
 
 //FOR CHANGE BIGINT TYPE OF CREATEDAT TO NUMBER
-function serializeBigInt(obj: any) {
+function serializeBigInt(obj: unknown) {
   return JSON.parse(
     JSON.stringify(obj, (_, value) =>
       typeof value === "bigint" ? Number(value) : value,
