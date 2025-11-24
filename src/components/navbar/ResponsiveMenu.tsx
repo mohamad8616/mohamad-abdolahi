@@ -1,3 +1,4 @@
+import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -26,7 +27,15 @@ const listItemsVariant = {
   },
 };
 
-export default function ResponsiveMenu({ open, setOpen, links }) {
+interface Props {
+  links: {
+    title: string;
+    href: string;
+  }[];
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function ResponsiveMenu({ open, setOpen, links }: Props) {
   return (
     <div className="z-50 md:hidden">
       <button
@@ -49,7 +58,7 @@ export default function ResponsiveMenu({ open, setOpen, links }) {
           variants={listVariants}
           initial="closed"
           animate="opened"
-          className="text-var(--btn-ternary)] absolute left-0 top-0 z-30 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-black text-4xl"
+          className="text-var(--btn-ternary)] absolute top-0 left-0 z-30 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-black text-4xl"
         >
           {links.map((link) => (
             <motion.div variants={listItemsVariant} key={link.title}>

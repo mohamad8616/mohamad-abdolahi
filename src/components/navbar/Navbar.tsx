@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import NavLinks from "./NavLinks";
@@ -67,7 +68,7 @@ function Navbar() {
             />
           </a>
         </div>
-        {/* RESPOSIVE MENU */}
+        {/* RESPONSIVE MENU */}
         <ResponsiveMenu open={open} setOpen={setOpen} links={links} />
       </nav>
     </div>

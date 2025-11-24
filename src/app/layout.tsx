@@ -35,6 +35,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
+        suppressHydrationWarning
         className={`${inter.className} overflow-x-hidden bg-stone-50 text-gray-900 transition-colors duration-200 dark:bg-black`}
       >
         <TransitionProvider>{children}</TransitionProvider>

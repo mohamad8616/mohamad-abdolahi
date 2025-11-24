@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import Portfolio from "@/components/portfolio/Portfolio";
 import Hero from "@/components/Hero";

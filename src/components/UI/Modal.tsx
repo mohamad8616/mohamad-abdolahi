@@ -1,8 +1,15 @@
 "use client";
+import React from "react";
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ isOpen, onClose, children, title }) => {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children?: React.ReactNode;
+  title: string;
+}
+const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -57,7 +64,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
           >
             <div
               ref={modalRef}
-              className="relative flex max-h-[calc(100vh-2rem)] w-full max-w-lg flex-col overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800 sm:max-w-lg md:max-w-xl lg:max-w-2xl"
+              className="relative flex max-h-[calc(100vh-2rem)] w-full max-w-lg flex-col overflow-hidden rounded-xl bg-white shadow-xl sm:max-w-lg md:max-w-xl lg:max-w-2xl dark:bg-gray-800"
             >
               {/* Header */}
               <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-700">
@@ -71,7 +78,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
                 )}
                 <button
                   onClick={onClose}
-                  className="rounded-lg p-2 text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 dark:focus:ring-offset-gray-800"
+                  className="rounded-lg p-2 text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 dark:focus:ring-offset-gray-800"
                   aria-label="Close modal"
                 >
                   <svg

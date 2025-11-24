@@ -1,8 +1,12 @@
 "use client";
+import React from "react";
 import Link from "next/link";
-import { motion, useTransform } from "framer-motion";
-
-const Brain = ({ scrollYProgress }) => {
+import { motion, MotionValue, useTransform } from "framer-motion";
+const Brain = ({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) => {
   const rotatesForward1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const rotatesForward2 = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const rotatesForward3 = useTransform(scrollYProgress, [0, 1], [0, 90]);

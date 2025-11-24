@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Portfolio from "@/components/portfolio/Portfolio";
 import { motion } from "framer-motion";
 import { GoArrowDown } from "react-icons/go";
