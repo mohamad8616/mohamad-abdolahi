@@ -1,21 +1,22 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Project } from "@/app/lib/definitions";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiMongodb,
-  SiExpress,
-  SiPostgresql,
   SiDocker,
+  SiExpress,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
 import { TbListDetails } from "react-icons/tb";
 
@@ -46,25 +47,6 @@ export default function PortfolioItem({ item }: { item: Project }) {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    if (isModalOpen) {
-      // Prevent scrolling on the body
-      document.body.style.overflow = "hidden";
-
-      //  also prevent scroll on touch devices (iOS Safari fix)
-      document.body.style.touchAction = "none";
-    } else {
-      // Re-enable scrolling
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    }
-
-    // Cleanup function 
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    };
-  }, [isModalOpen]);
   return (
     <div
       className={`flex h-screen w-screen items-center justify-center`}
@@ -84,10 +66,12 @@ export default function PortfolioItem({ item }: { item: Project }) {
             {/* Image Container */}
             <div className="group relative w-full md:w-1/2">
               <div className="overflow-hidden rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[var(--btn-primary)]/20">
-                <img
+                <Image
                   onClick={handleModalOpen}
-                  src={img}
+                  src={typeof img === "string" ? img : URL.createObjectURL(img)}
                   alt={title}
+                  width={500}
+                  height={300}
                   className="aspect-video h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
